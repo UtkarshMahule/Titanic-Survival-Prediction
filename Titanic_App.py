@@ -4,7 +4,7 @@ import streamlit as st
 import pickle
 import numpy as np
 
-model = pickle.load(open(r"C:\Users\utkar\titanic\titanic.pkl", 'rb'))     ## Load pickeled ml model
+model = pickle.load(open(r"titanic.pkl", 'rb'))     ## Load pickeled ml model
 
 ## Main Function
 def main():
@@ -92,11 +92,9 @@ if st.button("Predict"):                                                        
 
     if result[0] == 1:
         st.success("***congratulation !!!....*** **You probably would have made it!**")
-        #st.image("https://in.images.search.yahoo.com/search/images;_ylt=Awr1TbojCcpl4ZofnK27HAx.;_ylu=Y29sbwNzZzMEcG9zAzEEdnRpZAMEc2VjA3BpdnM-?p=lifeboat.jfif&fr2=piv-web&type=E210IN826G0&fr=mcafee#id=18&iurl=https%3A%2F%2Fultimate-survival-training.com%2Fwp-content%2Fuploads%2F2013%2F03%2FLifeboat.jpg&action=click")
         st.write("**Survival Probability Chances :** 'NO': {}%  'YES': {}% ".format(round((proba[0,0])*100,2),round((proba[0,1])*100,2)))
     else:
         st.error("***Better Luck Next time !!!!...*** **you're probably Ended up like 'Jack'**")
-        #st.image(r"Rip.jfif")
         st.write("**Survival Probability Chances :** 'NO': {}%  'YES': {}% ".format(round((proba[0,0])*100,2),round((proba[0,1])*100,2)))
 
 ## Working Button:
